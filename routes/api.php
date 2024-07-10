@@ -13,4 +13,5 @@ Route::get('/user', function (Request $request) {
 Route::apiResources([
     'tasks' => TaskController::class,
 ]);
+
 // Route::get('/tasks', [TaskController::class, 'all']);
