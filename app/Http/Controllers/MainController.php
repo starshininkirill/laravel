@@ -11,11 +11,6 @@ class MainController extends Controller
 {
     public function index()
     {
-        // $task = new ModelsTask();
-        // $task->name = 'Помыть пол';
-        // $task->status = 'open';
-
-        // $task->save();
         $tasks = ModelsTask::all();
         return view('index', ['tasks' => $tasks]);
     }
