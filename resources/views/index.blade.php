@@ -12,13 +12,19 @@
 <body>
     <div class="container">
         <h1>Приложение для создания задач</h1>
-        <form method="POST" action="">
-
+        <form class="create-form" method="POST" action="{{ route('tasks.store') }}">
+            <input type="text" name="name" placeholder="Задача...">
+            <button type="submit">
+                Создать
+            </button>
         </form>
         <div class="tasks">
             @foreach ($tasks as $task)
-                <div data-id="{{ $task->id }}" class="task">
-                    {{ $task->name }}
+                <div data-id="{{ $task->id }}" class="task  {{ $task->status == 'close' ? 'completed' : '' }}">
+                    <input {{ $task->status == 'close' ? 'checked' : '' }} type="checkbox" name="task-"{{ $task->id }}" id="task-"{{ $task->id }}" class="task-status">
+                    <div class="name">
+                        {{ $task->name }}
+                    </div>
                     <div class="delete">
                         <svg xmlns="http://www.w3.org/2000/svg" id="Bold" viewBox="0 0 24 24" width="512"
                             height="512">

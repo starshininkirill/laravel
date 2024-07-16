@@ -9,6 +9,29 @@ svg{
     height: 100%;
 }
 
+.create-form{
+    margin-bottom: 20px;
+    display: flex;
+    flex-direction: column;
+    width: 400px;
+    gap: 10px;
+    input{
+        padding: 10px;
+    }
+    button{
+        border: none;
+        outline: none;
+        width: fit-content;
+        padding: 10px 20px;
+        background-color: #000;
+        color: #fff;
+        border-radius: 10px;
+        cursor: pointer;
+        min-width: 200px;
+        text-align: center;
+    }
+}
+
 .tasks{
     display: flex;
     flex-direction: column;
@@ -21,6 +44,19 @@ svg{
         border: 1px solid gray;
         display: flex;
         justify-content: space-between;
+        gap: 20px;
+
+        &.completed{
+            background-color: #1bcd5fa4;
+        }
+        .name{
+            margin-right: auto;
+        }
+
+        .task-status{
+            cursor: pointer;
+        }
+
         .delete{
             width: 16px;
             height: 16px;

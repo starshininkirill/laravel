@@ -11,7 +11,7 @@ class MainController extends Controller
 {
     public function index()
     {
-        $tasks = ModelsTask::all();
+        $tasks = ModelsTask::all()->sortByDesc('created_at');
         return view('index', ['tasks' => $tasks]);
     }
 }
