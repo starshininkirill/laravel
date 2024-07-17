@@ -23,7 +23,8 @@ class TaskUpdateRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255|min:3',
-            'status' => 'required|in:open,close'
+            'status' => 'in:open,close',
+            'category_id' => 'nullable',
         ];
     }
 }

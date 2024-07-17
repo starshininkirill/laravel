@@ -11,5 +11,10 @@ class Task extends Model
 
     
 
-    protected $fillable = ['name', 'status'];
+    protected $fillable = ['name', 'status', 'category_id'];
+
+    public function category()
+    {
+        return $this->belongsTo(Category::class);
+    }
 }

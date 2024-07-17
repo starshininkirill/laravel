@@ -23,7 +23,8 @@ class TaskStoreRequest extends FormRequest
     {
         return [
             'name' => 'required|max:255|min:3',
-            'status' => 'in:open,close'
+            'status' => 'in:open,close',
+            'category_id' => 'nullable',
         ];
     }
 

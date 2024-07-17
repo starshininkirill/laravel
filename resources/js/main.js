@@ -46,7 +46,6 @@ $('.task .delete').on('click', function () {
         type: 'DELETE',
         url: `http://127.0.0.1:8000/api/tasks/${id}`,
         success: function (reponse) {
-            // alert('Задача удалена!')
             task.remove()
         },
         error: function (jqXHR, textStatus, errorThrown) {
@@ -82,7 +81,10 @@ $('.create-form').submit(function (e) {
             if (errorThrown == 'Unprocessable Content') {
                 alert('Заполните все поля')
             } else {
-                alert('Ошибка создания')
+                alert(errorThrown)
+                console.log(errorThrown);
+                console.log(textStatus);
+                console.log(jqXHR);
             }
         }
     });

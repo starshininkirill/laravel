@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
 use App\Models\Task as ModelsTask;
+use App\Models\Category as ModelsCategory;
 use Illuminate\Http\Request;
 
 
