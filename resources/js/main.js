@@ -61,10 +61,13 @@ $('.create-form').submit(function (e) {
 
     let formData = $(this).serializeArray();
     let name = formData[0].value;
+    let category_id = formData[1].value;
+    console.log(name);
 
     let data = {
         'name': name,
-        'status': 'open'
+        'status': 'open',
+        'category_id' : category_id,
     }
 
     $.ajax({
@@ -82,9 +85,6 @@ $('.create-form').submit(function (e) {
                 alert('Заполните все поля')
             } else {
                 alert(errorThrown)
-                console.log(errorThrown);
-                console.log(textStatus);
-                console.log(jqXHR);
             }
         }
     });

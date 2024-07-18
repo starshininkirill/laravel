@@ -15,7 +15,7 @@ class TaskController extends Controller
         $categories = ModelsCategory::all();
         $tasks = ModelsTask::all()->sortByDesc('created_at');
         
-        return view('tasks.index', [
+        return view('task.index', [
             'tasks' => $tasks,
             'categories' => $categories
         ]);

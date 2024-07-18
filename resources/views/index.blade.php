@@ -1,20 +1,9 @@
-<!DOCTYPE html>
-<html lang="en">
+@extends('base')
 
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>To-do app</title>
-    @vite(['resources/sass/main.scss', 'resources/js/app.js', 'resources/js/main.js'])
-</head>
+@section('main')
+    <main>
+        @yield('content')
 
-<body>
-    @include('templates.header')
-    <div class="container">
-        @yield('main')
-    </div>
-    @include('templates.footer')
-</body>
-
-</html>
+        @include('templates.sidebar')
+    </main>
+@endsection

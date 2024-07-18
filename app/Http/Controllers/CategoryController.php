@@ -6,6 +6,8 @@ use App\Http\Controllers\Controller;
 use App\Http\Requests\Category\CategoryStoreRequest;
 use App\Models\Category;
 use Illuminate\Http\Request;
+use App\Models\Task as ModelsTask;
+use App\Models\Category as ModelsCategory;
 
 class CategoryController extends Controller
 {
@@ -40,8 +42,13 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        //
-        return 'Страница категории ' . $id;
+        $categories = ModelsCategory::all();
+        $tasks = ModelsTask::where('category_id', $id)->get()->sortByDesc('created_at');
+        
+        return view('task.index', [
+            'tasks' => $tasks,
+            'categories' => $categories
+        ]);
     }
 
     /**

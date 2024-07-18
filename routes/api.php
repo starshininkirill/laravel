@@ -14,4 +14,3 @@ Route::apiResources([
     'tasks' => TaskController::class,
 ]);
 
-// Route::get('/tasks', [TaskController::class, 'all']);
