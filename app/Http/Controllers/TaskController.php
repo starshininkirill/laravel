@@ -8,11 +8,16 @@ use App\Models\Category as ModelsCategory;
 use Illuminate\Http\Request;
 
 
-class MainController extends Controller
+class TaskController extends Controller
 {
     public function index()
     {
+        $categories = ModelsCategory::all();
         $tasks = ModelsTask::all()->sortByDesc('created_at');
-        return view('index', ['tasks' => $tasks]);
+        
+        return view('tasks.index', [
+            'tasks' => $tasks,
+            'categories' => $categories
+        ]);
     }
 }

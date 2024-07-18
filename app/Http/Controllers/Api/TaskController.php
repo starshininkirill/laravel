@@ -3,8 +3,8 @@
 namespace App\Http\Controllers\Api;
 
 use App\Http\Controllers\Controller;
-use App\Http\Requests\TaskStoreRequest;
-use App\Http\Requests\TaskUpdateRequest;
+use App\Http\Requests\Task\TaskStoreRequest;
+use App\Http\Requests\Task\TaskUpdateRequest;
 use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Client\Response;
@@ -25,9 +25,9 @@ class TaskController extends Controller
      */
     public function store(TaskStoreRequest $request)
     {
-        $createt_task = Task::create($request->validated());
+        $created_task = Task::create($request->validated());
 
-        return new TaskResource($createt_task);
+        return new TaskResource($created_task);
     }
 
     /**

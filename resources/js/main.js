@@ -1,6 +1,6 @@
 import $ from 'jquery';
 
-$('.task-status').on('change', function () {
+$(document).on('change', '.task-status', function () {
     let th = $(this)
     let task = $(this).closest('.task')
     let id = task.data('id')
@@ -39,7 +39,7 @@ $('.task-status').on('change', function () {
     });
 })
 
-$('.task .delete').on('click', function () {
+$(document).on('click', '.task .delete', function () {
     let task = $(this).closest('.task')
     let id = task.data('id')
     $.ajax({
@@ -92,7 +92,7 @@ $('.create-form').submit(function (e) {
 
 function createTask(name, id) {
     return `
-        <div data-id="{{ $task->id }}" class="task">
+        <div data-id="${id}" class="task">
             <input type="checkbox" name="task-"${id}" id="task-"${id}" class="task-status">
             <div class="name">
                 ${name}
