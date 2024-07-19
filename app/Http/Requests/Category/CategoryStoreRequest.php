@@ -25,13 +25,4 @@ class CategoryStoreRequest extends FormRequest
             'name' => 'required|max:255|min:3',
         ];
     }
-
-    public function messages()
-    {
-        return [
-            'name.required' => 'Имя категории обязательно для заполнения.',
-            'name.max' => 'Имя категории не должно превышать 255 символов.',
-            'name.min' => 'Имя категории должно содержать минимум 3 символа.',
-        ];
-    }
 }
