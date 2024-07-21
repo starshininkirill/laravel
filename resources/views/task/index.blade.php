@@ -1,4 +1,4 @@
-@extends('index')
+@extends('layouts.tasks')
 
 @section('content')
     <div class="tasks-wrapper">
