@@ -4,6 +4,9 @@
     <div class="tasks-wrapper">
         <form class="create-form" method="POST" action="{{ route('tasks.store') }}">
             <input type="text" name="name" placeholder="Задача...">
+            @auth
+            <input type="hidden" name="user_id" value="{{ auth()->user()->id }}">
+            @endauth
             @if (!empty($categories))
                 <select name="category_id" id="">
                     <option value="">

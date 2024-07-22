@@ -24,7 +24,8 @@ class TaskStoreRequest extends FormRequest
         return [
             'name' => 'required|max:255|min:3',
             'status' => 'in:open,close',
-            'category_id' => 'nullable',
+            'category_id' => 'nullable|exists:categories,id',
+            'user_id' => 'required|exists:users,id',
         ];
     }
 

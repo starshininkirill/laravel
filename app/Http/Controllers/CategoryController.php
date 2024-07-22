@@ -32,7 +32,12 @@ class CategoryController extends Controller
      */
     public function store(CategoryStoreRequest $request)
     {
-        $created_category = Category::create($request->validated());
+        $user_id = auth()->user()->id;
+
+        $validated = $request->validated(); 
+        $validated['user_id'] = $user_id;
+
+        $created_category = Category::create($validated);
 
         return redirect()->route('home')->with('success', 'Категория успешно создана.');
     }
@@ -42,8 +47,12 @@ class CategoryController extends Controller
      */
     public function show(string $id)
     {
-        $categories = ModelsCategory::all();
-        $tasks = ModelsTask::where('category_id', $id)->get()->sortByDesc('created_at');
+        $user = auth()->user();
+        $categories = ModelsCategory::where('user_id', $user->id)->get();
+        $tasks = ModelsTask::where('category_id', $id)
+            ->where('user_id', $user->id)
+            ->get()
+            ->sortByDesc('created_at');
         
         return view('task.index', [
             'tasks' => $tasks,

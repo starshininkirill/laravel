@@ -60,15 +60,17 @@ $('.create-form').submit(function (e) {
     let taskWrapper = $('.tasks')
 
     let formData = $(this).serializeArray();
-    let name = formData[0].value;
-    let category_id = formData[1].value;
-    console.log(name);
+    let name = formData.find(item => item.name === 'name').value;
+    let user_id = formData.find(item => item.name === 'user_id').value;
+    let category_id = formData.find(item => item.name === 'category_id').value;
 
     let data = {
         'name': name,
         'status': 'open',
         'category_id' : category_id,
+        'user_id' : user_id,
     }
+
 
     $.ajax({
         data: data,

@@ -11,7 +11,7 @@ class Task extends Model
 
     
 
-    protected $fillable = ['name', 'status', 'category_id'];
+    protected $fillable = ['name', 'status', 'category_id', 'user_id'];
 
     public function category()
     {

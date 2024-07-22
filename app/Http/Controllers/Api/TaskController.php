@@ -9,6 +9,7 @@ use App\Http\Resources\TaskResource;
 use App\Models\Task;
 use Illuminate\Http\Client\Response;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Log;
 
 class TaskController extends Controller
 {
@@ -25,6 +26,8 @@ class TaskController extends Controller
      */
     public function store(TaskStoreRequest $request)
     {
+
+        Log::info('Создание задачи:', $request->validated());
         $created_task = Task::create($request->validated());
 
         return new TaskResource($created_task);

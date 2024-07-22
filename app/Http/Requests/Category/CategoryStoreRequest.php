@@ -26,3 +26,4 @@ class CategoryStoreRequest extends FormRequest
         ];
     }
 }
+ 

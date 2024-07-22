@@ -17,6 +17,8 @@ return new class extends Migration
             $table->string('name');
             $table->string('status')->default('open');
             $table->foreignId('category_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('user_id')->nullable()->constrained()->onDelete('cascade');
+            $table->foreignId('group_id')->nullable()->constrained()->onDelete('cascade');
         });
     }
 
